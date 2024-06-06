@@ -21,9 +21,9 @@ public class PlayerClamp : MonoBehaviour
         transform.position = viewPos;
 
 
-        Debug.Log("Screen Bounds: " + screenBounds);
-        Debug.Log("x: " + viewPos.x);
-        Debug.Log("y: " + viewPos.y);
+        // Debug.Log("Screen Bounds: " + screenBounds);
+        // Debug.Log("x: " + viewPos.x);
+        // Debug.Log("y: " + viewPos.y);
 
     }
 }
