@@ -12,7 +12,7 @@ public class Bomb : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        numberSpawned++;
+        // numberSpawned++;
     }
 
     // Update is called once per frame
@@ -31,14 +31,14 @@ public class Bomb : MonoBehaviour
 
             // Drain stamina bar code here
 
-            numberSpawned--;
+            // numberSpawned--;
             Destroy(gameObject);
               
         }
     }
 
     void OnBecameInvisible() {
-        numberSpawned--;
+        // numberSpawned--;
         Destroy(gameObject);
     }
 }
