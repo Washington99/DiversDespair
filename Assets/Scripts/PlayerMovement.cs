@@ -8,11 +8,20 @@ public class PlayerMovement : MonoBehaviour
     private float maxSpeed;
     private Rigidbody2D body;
     private Vector2 screenBounds;
+    private float stamina;
+    [SerializeField] private float maxStamina;
+    
+    [SerializeField] private float staminaDrain;
+    [SerializeField] PlayerStamina staminaBar;
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
         maxSpeed = speed * (float)0.8;
+
+        stamina = maxStamina;
+        staminaBar = GetComponentInChildren<PlayerStamina>();
+        staminaBar.UpdateStaminaBar(stamina, maxStamina);
     }
  
     private void Update()
@@ -22,12 +31,22 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
             body.velocity = new Vector2(body.velocity.x, speed);
 
+        ClampVelocity();
+        DrainStamina();
+    }
+
+    private void DrainStamina() {
+        stamina -= staminaDrain * Time.deltaTime;
+        staminaBar.UpdateStaminaBar(stamina, maxStamina);
+    }
+
+    private void ClampVelocity() {
         if (transform.position.x < -screenBounds.x || transform.position.x > screenBounds.x)
             body.velocity = new Vector2(0, body.velocity.y);
         if (transform.position.y < -screenBounds.y || transform.position.y > screenBounds.y)
             body.velocity = new Vector2(body.velocity.x, 0);    
         if (body.velocity.y > maxSpeed)
-            body.velocity = new Vector2(body.velocity.x, maxSpeed);
+            body.velocity = new Vector2(body.velocity.x, maxSpeed); 
         if (body.velocity.y < -maxSpeed / 2)
             body.velocity = new Vector2(body.velocity.x, -maxSpeed/2);
     }
