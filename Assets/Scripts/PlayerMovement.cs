@@ -26,13 +26,16 @@ public class PlayerMovement : MonoBehaviour
  
     private void Update()
     {
+        Move();
+        ClampVelocity();
+        DrainStamina();
+    }
+
+    private void Move() {
         body.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, body.velocity.y);
 
         if (Input.GetKeyDown(KeyCode.Space))
             body.velocity = new Vector2(body.velocity.x, speed);
-
-        ClampVelocity();
-        DrainStamina();
     }
 
     private void DrainStamina() {
