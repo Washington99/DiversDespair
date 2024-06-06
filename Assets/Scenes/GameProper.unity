@@ -449,8 +449,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  stamina: 0
   maxStamina: 100
-  staminaDrain: 1
+  staminaDrain: 5
   staminaBar: {fileID: 2091077276}
 --- !u!114 &408140804
 MonoBehaviour:

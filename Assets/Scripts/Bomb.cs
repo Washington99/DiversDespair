@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
-
     [SerializeField] private float scrollSpeed;
+    private float damageAmount = 20f; 
 
     // Start is called before the first frame update
     void Start()
@@ -19,20 +19,21 @@ public class Bomb : MonoBehaviour
         transform.position += Vector3.down * scrollSpeed * Time.deltaTime;
     }
 
-    private void OnTriggerEnter2D (Collider2D collider) {
-
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
         PlayerMovement player = collider.GetComponent<PlayerMovement>();
-            
-        if (player != null) {
 
-            // Drain stamina bar code here
+        if (player != null)
+        {
+            // Drain stamina
+            player.TakeDamage(damageAmount);
 
             Destroy(gameObject);
-              
         }
     }
 
-    void OnBecameInvisible() {
+    void OnBecameInvisible()
+    {
         Destroy(gameObject);
     }
 }

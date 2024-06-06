@@ -1,18 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
- 
+
 public class PlayerMovement : MonoBehaviour
-{ 
+{
     [SerializeField] private float speed;
     private float maxSpeed;
     private Rigidbody2D body;
     private Vector2 screenBounds;
-    private float stamina;
+    public float stamina;
     [SerializeField] private float maxStamina;
-    
+
     [SerializeField] private float staminaDrain;
     [SerializeField] PlayerStamina staminaBar;
+
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
@@ -31,26 +32,40 @@ public class PlayerMovement : MonoBehaviour
         DrainStamina();
     }
 
-    private void Move() {
+    private void Move()
+    {
         body.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, body.velocity.y);
 
         if (Input.GetKeyDown(KeyCode.Space))
             body.velocity = new Vector2(body.velocity.x, speed * 2);
     }
 
-    private void DrainStamina() {
-        stamina -= staminaDrain * Time.deltaTime;
-        staminaBar.UpdateStaminaBar(stamina, maxStamina);
+    private void DrainStamina()
+    {
+        if (stamina > 0)
+        {
+            stamina -= staminaDrain * Time.deltaTime;
+            staminaBar.UpdateStaminaBar(stamina, maxStamina);
+        }
     }
 
-    private void ClampVelocity() {
+    private void ClampVelocity()
+    {
         if (transform.position.x < -screenBounds.x || transform.position.x > screenBounds.x)
             body.velocity = new Vector2(0, body.velocity.y);
         if (transform.position.y < -screenBounds.y || transform.position.y > screenBounds.y)
-            body.velocity = new Vector2(body.velocity.x, 0);    
+            body.velocity = new Vector2(body.velocity.x, 0);
         if (body.velocity.y > maxSpeed)
-            body.velocity = new Vector2(body.velocity.x, maxSpeed); 
+            body.velocity = new Vector2(body.velocity.x, maxSpeed);
         if (body.velocity.y < -maxSpeed / 2)
-            body.velocity = new Vector2(body.velocity.x, -maxSpeed/2);
+            body.velocity = new Vector2(body.velocity.x, -maxSpeed / 2);
+    }
+
+    // Method to handle taking damage
+    public void TakeDamage(float damage)
+    {
+        stamina -= damage;
+        if (stamina < 0) stamina = 0;
+        staminaBar.UpdateStaminaBar(stamina, maxStamina);
     }
 }
