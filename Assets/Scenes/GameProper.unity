@@ -372,7 +372,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 408140799}
-  m_BodyType: 1
+  m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -423,7 +423,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.0015055537, y: 0.0030111894}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -434,7 +434,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.25021946, y: 0.3134538}
   m_EdgeRadius: 0
 --- !u!114 &408140803
 MonoBehaviour:
@@ -1494,7 +1494,6 @@ Transform:
   - {fileID: 952436590}
   - {fileID: 648051013}
   - {fileID: 919531168}
-  - {fileID: 1657385759}
   - {fileID: 1211596701}
   m_Father: {fileID: 1346036718}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2268,5 +2267,5 @@ SceneRoots:
   - {fileID: 741047028}
   - {fileID: 1346036718}
   - {fileID: 1511100921}
-  - {fileID: 741047028}
   - {fileID: 523439944}
+  - {fileID: 1254194342}
