@@ -14,11 +14,12 @@ public class PlayerClamp : MonoBehaviour
 
     // Update is called once per frame
     private void LateUpdate() {
-
+        
         Vector3 viewPos = transform.position;
         viewPos.x = Mathf.Clamp(viewPos.x, -screenBounds.x, screenBounds.x);
         viewPos.y = Mathf.Clamp(viewPos.y, -screenBounds.y, screenBounds.y);
         transform.position = viewPos;
+
 
         Debug.Log("Screen Bounds: " + screenBounds);
         Debug.Log("x: " + viewPos.x);
