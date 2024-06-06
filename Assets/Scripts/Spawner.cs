@@ -15,11 +15,15 @@ public class Spawner : MonoBehaviour
 
     [SerializeField] private Oxygen oxygenObject;
     [SerializeField] private int oxygenToSpawn;
+
+    [SerializeField] private Trap trapObject;
+    [SerializeField] private int trapToSpawn;
     [SerializeField] private int collectibleSpawnRate;
 
     private List<Bomb> bombs;
     private List<Coin> coins;
     private List<Oxygen> oxygen;
+    private List<Trap> traps;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +31,7 @@ public class Spawner : MonoBehaviour
         bombs = new List<Bomb>();
         coins = new List<Coin>();
         oxygen = new List<Oxygen>();
+        traps = new List<Trap>();
     }
 
     // Update is called once per frame
@@ -59,8 +64,22 @@ public class Spawner : MonoBehaviour
             bombs.Add(bomb.GetComponent<Bomb>());
         }
 
+        if (spawnSeed < 8 && traps.Count < trapToSpawn) {
+            GameObject trap = Instantiate(
+                trapObject.gameObject, 
+                transform.position + new Vector3(Random.Range(-10.0f, 10.0f), 0.0f, 0.0f), 
+                Quaternion.identity
+                );
+
+            // Place Instantiated bomb inside spawner object
+            trap.transform.parent = gameObject.transform;
+
+            traps.Add(trap.GetComponent<Trap>());
+        }
+
         // Remove all Destroyed bombs
         bombs.RemoveAll(GameObject => GameObject == null);
+        traps.RemoveAll(GameObject => GameObject == null);
     }
 
     void spawnCollectible()
@@ -93,7 +112,9 @@ public class Spawner : MonoBehaviour
             oxygen.Add(o2.GetComponent<Oxygen>());
         }
 
-        // Remove all Destroyed bombs
+        // Remove all Destroyed collectible
+        
+        coins.RemoveAll(GameObject => GameObject == null);
         oxygen.RemoveAll(GameObject => GameObject == null);
     }
 }
