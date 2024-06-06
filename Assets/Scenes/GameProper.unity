@@ -448,7 +448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25eafa4d1afa6e1499a07368c63a0a90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 5
   maxStamina: 100
   staminaDrain: 1
   staminaBar: {fileID: 2091077276}
@@ -2160,7 +2160,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 2.8, y: 42}
-  m_SizeDelta: {x: 100, y: 37.126}
+  m_SizeDelta: {x: 35, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2091077276
 MonoBehaviour:
@@ -2176,7 +2176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slider: {fileID: 2091077277}
   target: {fileID: 408140800}
-  offset: {x: 0, y: 2, z: 0}
+  offset: {x: 0, y: 1.5, z: 0}
 --- !u!114 &2091077277
 MonoBehaviour:
   m_ObjectHideFlags: 0
