@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bomb : MonoBehaviour
+public class Coin : MonoBehaviour
 {
 
     [SerializeField] private float scrollSpeed;
@@ -10,7 +10,7 @@ public class Bomb : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -25,7 +25,7 @@ public class Bomb : MonoBehaviour
             
         if (player != null) {
 
-            // Drain stamina bar code here
+            // Point increase code here
 
             Destroy(gameObject);
               

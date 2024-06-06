@@ -9,12 +9,24 @@ public class Spawner : MonoBehaviour
     [SerializeField] private Bomb bombObject;
     [SerializeField] private int bombsToSpawn;
 
+
+    [SerializeField] private Coin coinObject;
+    [SerializeField] private int coinsToSpawn;
+
+    [SerializeField] private Oxygen oxygenObject;
+    [SerializeField] private int oxygenToSpawn;
+    [SerializeField] private int collectibleSpawnRate;
+
     private List<Bomb> bombs;
+    private List<Coin> coins;
+    private List<Oxygen> oxygen;
 
     // Start is called before the first frame update
     void Start()
     {
         bombs = new List<Bomb>();
+        coins = new List<Coin>();
+        oxygen = new List<Oxygen>();
     }
 
     // Update is called once per frame
@@ -25,8 +37,16 @@ public class Spawner : MonoBehaviour
 
     void FixedUpdate()
     {
-        
-        if (Random.Range(0, 10) > 8 && bombs.Count < bombsToSpawn) {
+        spawnHazard();
+        spawnCollectible();
+
+    }
+
+    void spawnHazard()
+    {
+        float spawnSeed = Random.Range(0, 10);
+
+        if (spawnSeed > 8 && bombs.Count < bombsToSpawn) {
             GameObject bomb = Instantiate(
                 bombObject.gameObject, 
                 transform.position + new Vector3(Random.Range(-10.0f, 10.0f), 0.0f, 0.0f), 
@@ -36,12 +56,44 @@ public class Spawner : MonoBehaviour
             // Place Instantiated bomb inside spawner object
             bomb.transform.parent = gameObject.transform;
 
-
             bombs.Add(bomb.GetComponent<Bomb>());
         }
 
         // Remove all Destroyed bombs
         bombs.RemoveAll(GameObject => GameObject == null);
+    }
 
+    void spawnCollectible()
+    {
+        float spawnSeed = Random.Range(0, 10);
+        
+        if (coins.Count < coinsToSpawn && spawnSeed > collectibleSpawnRate) {
+            GameObject coin = Instantiate(
+                coinObject.gameObject, 
+                transform.position + new Vector3(Random.Range(-10.0f, 10.0f), 0.0f, 0.0f), 
+                Quaternion.identity
+                );
+
+            // Place Instantiated bomb inside spawner object
+            coin.transform.parent = gameObject.transform;
+
+            coins.Add(coin.GetComponent<Coin>());
+        }
+
+        if (oxygen.Count < oxygenToSpawn && spawnSeed <= collectibleSpawnRate) {
+            GameObject o2 = Instantiate(
+                oxygenObject.gameObject, 
+                transform.position + new Vector3(Random.Range(-10.0f, 10.0f), 0.0f, 0.0f), 
+                Quaternion.identity
+                );
+
+            // Place Instantiated bomb inside spawner object
+            o2.transform.parent = gameObject.transform;
+
+            oxygen.Add(o2.GetComponent<Oxygen>());
+        }
+
+        // Remove all Destroyed bombs
+        oxygen.RemoveAll(GameObject => GameObject == null);
     }
 }
