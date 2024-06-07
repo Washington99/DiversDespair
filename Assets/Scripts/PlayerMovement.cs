@@ -18,6 +18,10 @@ public class PlayerMovement : MonoBehaviour
     private bool isDead;
     public GameManagerScript gameManager;
     // public depthTracker depthTracking;
+
+    //coin count
+    public CoinManager cm;
+
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
@@ -80,4 +84,8 @@ public class PlayerMovement : MonoBehaviour
         staminaBar.UpdateStaminaBar(stamina, maxStamina);
     }
 
+    public void IncreaseCoinCount(float amount)
+    {
+        cm.coinCount++;
+    }
 }
