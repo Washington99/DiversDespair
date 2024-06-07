@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scrollSpeed: -1
+  damageAmount: 20
 --- !u!95 &4194424847848024083
 Animator:
   serializedVersion: 5
