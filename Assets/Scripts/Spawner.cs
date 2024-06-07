@@ -53,8 +53,8 @@ public class Spawner : MonoBehaviour
         Debug.Log(depthScaling);
         bombsToSpawn = initialBombsToSpawn + depthScaling;
         coinsToSpawn = initialCoinsToSpawn + depthScaling;
-        trapToSpawn = initialTrapToSpawn + depthScaling;
-        oxygenToSpawn = initialOxygenToSpawn + depthScaling;
+        trapToSpawn = initialTrapToSpawn + Mathf.FloorToInt(dt.points/50);    
+        oxygenToSpawn = initialOxygenToSpawn - Mathf.FloorToInt(dt.points/30);
         spawnHazard();
         spawnCollectible();
     }
@@ -77,7 +77,7 @@ public class Spawner : MonoBehaviour
             bombs.Add(bomb.GetComponent<Bomb>());
         }
 
-        if (spawnSeed < 8 && traps.Count < Mathf.Min(trapToSpawn, 5)) {
+        if (spawnSeed < 8 && traps.Count < Mathf.Min(trapToSpawn,4)) {
             GameObject trap = Instantiate(
                 trapObject.gameObject, 
                 transform.position + new Vector3(Random.Range(-spawnWidth, spawnWidth), 0.0f, 0.0f), 
@@ -98,7 +98,7 @@ public class Spawner : MonoBehaviour
     void spawnCollectible()
     {
         float spawnSeed = Random.Range(0, 10);
-        if (coins.Count < coinsToSpawn && spawnSeed > collectibleSpawnRate) {
+        if (coins.Count < Mathf.Min(coinsToSpawn,8) && spawnSeed > collectibleSpawnRate) {
             GameObject coin = Instantiate(
                 coinObject.gameObject, 
                 transform.position + new Vector3(Random.Range(-spawnWidth, spawnWidth), 0.0f, 0.0f), 
@@ -106,12 +106,12 @@ public class Spawner : MonoBehaviour
                 );
 
             // Place Instantiated bomb inside spawner object
-            
+            coin.transform.parent = gameObject.transform;
             coin.GetComponent<Coin>().scrollSpeed = -1 * Random.Range(0.7f,1.4f) - dt.points*0.01f;
             coins.Add(coin.GetComponent<Coin>());
         }
 
-        if (oxygen.Count < oxygenToSpawn && spawnSeed <= collectibleSpawnRate) {
+        if (oxygen.Count < Mathf.Max(oxygenToSpawn,1) && spawnSeed <= collectibleSpawnRate) {
             GameObject o2 = Instantiate(
                 oxygenObject.gameObject, 
                 transform.position + new Vector3(Random.Range(-spawnWidth, spawnWidth), 0.0f, 0.0f), 
