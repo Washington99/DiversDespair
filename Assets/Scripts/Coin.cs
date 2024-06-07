@@ -5,18 +5,13 @@ using UnityEngine;
 public class Coin : MonoBehaviour
 {
 
-    [SerializeField] private float scrollSpeed;
-
+    public float scrollSpeed;
     AudioManager audioManager;
 
     private void Awake(){
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -34,6 +29,7 @@ public class Coin : MonoBehaviour
 
             audioManager.PlaySFX(audioManager.coinCollect);
 
+            player.IncreaseCoinCount(1);
             Destroy(gameObject);
               
         }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Trap : MonoBehaviour
 {
-    [SerializeField] private float scrollSpeed;
+    public float scrollSpeed;
     
     //new
     AudioManager audioManager;
