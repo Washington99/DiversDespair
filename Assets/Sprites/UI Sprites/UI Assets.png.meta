@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1dbb21ebade339445a67f9539be8f2ec
+guid: 5ec3649187670c5468d0e383dd438a3c
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -93,16 +93,134 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Mine_0
+      name: UI Assets_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 939bbd8b8f196474bbafb4e577a16f23
+      internalID: 213575597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Assets_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1aee6a6303705c946996783e60a68d16
+      internalID: -1283746139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Assets_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e532b2d63c8b904ea332edc7f7e03ae
+      internalID: -133779735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Assets_3
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 96
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce65d78ba9148e34d839622d63c0b4c1
+      internalID: -1260380175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Assets_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee0b3c7497c10804f9e2651096929f57
+      internalID: -1585546267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI Assets_5
       rect:
         serializedVersion: 2
         x: 0
         y: 32
-        width: 32
+        width: 64
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -111,19 +229,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aadc113f351c1f94c91a528461020adc
-      internalID: -1947645381
+      spriteID: 745161da367dd0f4ca11f4c75e1e2539
+      internalID: -272060479
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mine_1
+      name: UI Assets_6
       rect:
         serializedVersion: 2
-        x: 32
+        x: 64
         y: 32
-        width: 32
+        width: 64
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -132,19 +250,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c062d1fcb7658c146a5e3305d7a5ed26
-      internalID: 2021620228
+      spriteID: fe35bb4808c30b940beb3a16af48e940
+      internalID: -906125071
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mine_2
+      name: UI Assets_7
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
+        width: 64
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -153,19 +271,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 21d1c911c6e3bbf488b7d98cf1b06f72
-      internalID: 1534223761
+      spriteID: a3b7b892482202c4abbfcbac772724dc
+      internalID: -1575005693
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mine_3
+      name: UI Assets_8
       rect:
         serializedVersion: 2
-        x: 32
+        x: 64
         y: 0
-        width: 32
+        width: 64
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -174,8 +292,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 26e3294d55f12ba43820bb5e25e303a9
-      internalID: -1545038798
+      spriteID: 1435ae1e386082d48ae119b947ab72f9
+      internalID: -384692558
       vertices: []
       indices: 
       edges: []
@@ -191,10 +309,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Mine_0: -1947645381
-      Mine_1: 2021620228
-      Mine_2: 1534223761
-      Mine_3: -1545038798
+      UI Assets_0: 213575597
+      UI Assets_1: -1283746139
+      UI Assets_2: -133779735
+      UI Assets_3: -1260380175
+      UI Assets_4: -1585546267
+      UI Assets_5: -272060479
+      UI Assets_6: -906125071
+      UI Assets_7: -1575005693
+      UI Assets_8: -384692558
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

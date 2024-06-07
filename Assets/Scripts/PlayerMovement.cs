@@ -17,13 +17,13 @@ public class PlayerMovement : MonoBehaviour
     {
         body = GetComponent<Rigidbody2D>();
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
-        maxSpeed = speed * (float)0.8;
+        maxSpeed = speed;
 
         stamina = maxStamina;
         staminaBar = GetComponentInChildren<PlayerStamina>();
         staminaBar.UpdateStaminaBar(stamina, maxStamina);
     }
- 
+
     private void Update()
     {
         Move();
@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
         body.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, body.velocity.y);
 
         if (Input.GetKeyDown(KeyCode.Space))
-            body.velocity = new Vector2(body.velocity.x, speed);
+            body.velocity = new Vector2(body.velocity.x, speed * 2);
     }
 
     private void DrainStamina() {
@@ -53,4 +53,12 @@ public class PlayerMovement : MonoBehaviour
         if (body.velocity.y < -maxSpeed / 2)
             body.velocity = new Vector2(body.velocity.x, -maxSpeed/2);
     }
+
+    public void TakeDamage(float damage)
+    {
+        stamina -= damage;
+        staminaBar.UpdateStaminaBar(stamina, maxStamina);
+    }
+
+
 }
