@@ -3334,7 +3334,7 @@ MonoBehaviour:
   slider: {fileID: 2091077277}
   target: {fileID: 408140800}
   offset: {x: 0, y: 1.5, z: 0}
-  sliderFill: {fileID: 0}
+  sliderFill: {fileID: 848256419}
 --- !u!114 &2091077277
 MonoBehaviour:
   m_ObjectHideFlags: 0
