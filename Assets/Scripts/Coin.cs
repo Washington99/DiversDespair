@@ -7,6 +7,11 @@ public class Coin : MonoBehaviour
 
     [SerializeField] private float scrollSpeed;
 
+    AudioManager audioManager;
+
+    private void Awake(){
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +31,8 @@ public class Coin : MonoBehaviour
         if (player != null) {
 
             // Point increase code here
+
+            audioManager.PlaySFX(audioManager.coinCollect);
 
             Destroy(gameObject);
               

@@ -7,6 +7,12 @@ public class Oxygen : MonoBehaviour
     [SerializeField] private float scrollSpeed;
     private float healAmount = 20f;
 
+    AudioManager audioManager;
+
+    private void Awake(){
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +31,7 @@ public class Oxygen : MonoBehaviour
             
         if (player != null) {
 
+            audioManager.PlaySFX(audioManager.staminaReplenish);
             player.HealStamina(healAmount);
 
             Destroy(gameObject);

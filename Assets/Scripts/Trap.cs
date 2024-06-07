@@ -5,7 +5,14 @@ using UnityEngine;
 public class Trap : MonoBehaviour
 {
     [SerializeField] private float scrollSpeed;
+    
+    //new
+    AudioManager audioManager;
     private float damageAmount = 50f;
+
+    private void Awake(){
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +33,7 @@ public class Trap : MonoBehaviour
         if (player != null) {
 
             // Drain stamina
+            audioManager.PlaySFX(audioManager.death);
             player.TakeDamage(damageAmount);
 
             Destroy(gameObject);
