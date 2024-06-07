@@ -7,6 +7,7 @@ public class Coin : MonoBehaviour
 
     [SerializeField] private float scrollSpeed;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +28,7 @@ public class Coin : MonoBehaviour
 
             // Point increase code here
 
+            player.IncreaseCoinCount(1);
             Destroy(gameObject);
               
         }
