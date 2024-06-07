@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bomb : MonoBehaviour
 {
     [SerializeField] private float scrollSpeed;
-    private float damageAmount = 20f;
+    [SerializeField] private float damageAmount;
     private Animator myAnimator;
     private Collider2D myCollider;
 
@@ -39,6 +39,8 @@ public class Bomb : MonoBehaviour
 
             // Start the coroutine to destroy the bomb after the animation
             StartCoroutine(DestroyAfterAnimation());
+
+            myCollider.enabled = true;
         }
     }
 
