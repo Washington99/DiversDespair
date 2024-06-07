@@ -45,7 +45,7 @@ public class Bomb : MonoBehaviour
     private IEnumerator DestroyAfterAnimation()
     {
         // Wait until the animation completes
-        yield return new WaitForSeconds(myAnimator.GetCurrentAnimatorStateInfo(0).length);
+        yield return new WaitForSeconds(0.5f);
 
         // Destroy the bomb object
         Destroy(gameObject);

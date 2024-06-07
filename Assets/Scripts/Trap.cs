@@ -5,7 +5,8 @@ using UnityEngine;
 public class Trap : MonoBehaviour
 {
     [SerializeField] private float scrollSpeed;
-    
+    private float damageAmount = 50f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +25,8 @@ public class Trap : MonoBehaviour
             
         if (player != null) {
 
-            // Point increase code here
+            // Drain stamina
+            player.TakeDamage(damageAmount);
 
             Destroy(gameObject);
               

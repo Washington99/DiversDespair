@@ -73,5 +73,11 @@ public class PlayerMovement : MonoBehaviour
         staminaBar.UpdateStaminaBar(stamina, maxStamina);
     }
 
+    public void HealStamina(float amount)
+    {
+        stamina += amount;
+        stamina = Mathf.Clamp(stamina, 0, maxStamina);
+        staminaBar.UpdateStaminaBar(stamina, maxStamina);
+    }
 
 }
