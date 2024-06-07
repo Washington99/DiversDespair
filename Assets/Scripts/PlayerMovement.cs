@@ -25,6 +25,9 @@ public class PlayerMovement : MonoBehaviour
     //death animation
     private Animator myAnimator;
 
+    //death sound
+    AudioManager audioManager;
+
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
@@ -34,6 +37,8 @@ public class PlayerMovement : MonoBehaviour
         stamina = maxStamina;
         staminaBar = GetComponentInChildren<PlayerStamina>();
         staminaBar.UpdateStaminaBar(stamina, maxStamina);
+
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     void Start()
@@ -52,6 +57,7 @@ public class PlayerMovement : MonoBehaviour
             isDead = true; 
             //death animation
             myAnimator.SetTrigger("death");
+            audioManager.PlaySFX(audioManager.drownSound);
             StartCoroutine(DestroyAfterDeath());
             // depthTracking.
         }
