@@ -18,8 +18,6 @@ public class Spawner : MonoBehaviour
 
     [SerializeField] private Trap trapObject;
     [SerializeField] private int trapToSpawn;
-
-    [SerializeField] private int spawnWidth;
     [SerializeField] private int collectibleSpawnRate;
 
     private List<Bomb> bombs;
@@ -56,7 +54,7 @@ public class Spawner : MonoBehaviour
         if (spawnSeed > 8 && bombs.Count < bombsToSpawn) {
             GameObject bomb = Instantiate(
                 bombObject.gameObject, 
-                transform.position + new Vector3(Random.Range(-spawnWidth, spawnWidth), 0.0f, 0.0f), 
+                transform.position + new Vector3(Random.Range(-10.0f, 10.0f), 0.0f, 0.0f), 
                 Quaternion.identity
                 );
 
@@ -69,7 +67,7 @@ public class Spawner : MonoBehaviour
         if (spawnSeed < 8 && traps.Count < trapToSpawn) {
             GameObject trap = Instantiate(
                 trapObject.gameObject, 
-                transform.position + new Vector3(Random.Range(-spawnWidth, spawnWidth), 0.0f, 0.0f), 
+                transform.position + new Vector3(Random.Range(-10.0f, 10.0f), 0.0f, 0.0f), 
                 Quaternion.identity
                 );
 
@@ -91,7 +89,7 @@ public class Spawner : MonoBehaviour
         if (coins.Count < coinsToSpawn && spawnSeed > collectibleSpawnRate) {
             GameObject coin = Instantiate(
                 coinObject.gameObject, 
-                transform.position + new Vector3(Random.Range(-spawnWidth, spawnWidth), 0.0f, 0.0f), 
+                transform.position + new Vector3(Random.Range(-10.0f, 10.0f), 0.0f, 0.0f), 
                 Quaternion.identity
                 );
 
@@ -104,7 +102,7 @@ public class Spawner : MonoBehaviour
         if (oxygen.Count < oxygenToSpawn && spawnSeed <= collectibleSpawnRate) {
             GameObject o2 = Instantiate(
                 oxygenObject.gameObject, 
-                transform.position + new Vector3(Random.Range(-spawnWidth, spawnWidth), 0.0f, 0.0f), 
+                transform.position + new Vector3(Random.Range(-10.0f, 10.0f), 0.0f, 0.0f), 
                 Quaternion.identity
                 );
 
