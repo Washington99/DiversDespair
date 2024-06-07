@@ -64,6 +64,7 @@ public class Spawner : MonoBehaviour
     {
         float spawnSeed = Random.Range(0, 10);
 
+        // SPAWN BOMB
         if (spawnSeed > 8 && bombs.Count < bombsToSpawn) {
             GameObject bomb = Instantiate(
                 bombObject.gameObject, 
@@ -77,6 +78,7 @@ public class Spawner : MonoBehaviour
             bombs.Add(bomb.GetComponent<Bomb>());
         }
 
+        // SPAWN TRAP
         if (spawnSeed < 8 && traps.Count < Mathf.Min(trapToSpawn, 5)) {
             GameObject trap = Instantiate(
                 trapObject.gameObject, 
@@ -98,6 +100,8 @@ public class Spawner : MonoBehaviour
     void spawnCollectible()
     {
         float spawnSeed = Random.Range(0, 10);
+
+        // SPAWN COIN
         if (coins.Count < coinsToSpawn && spawnSeed > collectibleSpawnRate) {
             GameObject coin = Instantiate(
                 coinObject.gameObject, 
@@ -106,11 +110,12 @@ public class Spawner : MonoBehaviour
                 );
 
             // Place Instantiated bomb inside spawner object
-            
+            coin.transform.parent = gameObject.transform;
             coin.GetComponent<Coin>().scrollSpeed = -1 * Random.Range(0.7f,1.4f) - dt.points*0.01f;
             coins.Add(coin.GetComponent<Coin>());
         }
 
+        // SPAWN OXYGEN
         if (oxygen.Count < oxygenToSpawn && spawnSeed <= collectibleSpawnRate) {
             GameObject o2 = Instantiate(
                 oxygenObject.gameObject, 
