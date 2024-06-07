@@ -158,6 +158,7 @@ MonoBehaviour:
   explosion: {fileID: 8300000, guid: 39d95322e08d84fc88a217e689779f38, type: 3}
   death: {fileID: 8300000, guid: 4f5bc64a69b9741b49c08897fbf40c67, type: 3}
   staminaReplenish: {fileID: 8300000, guid: a0fbeb571ed114dc29e75de4226e56c5, type: 3}
+  drownSound: {fileID: 8300000, guid: 1bae0ca7c4ecbc946891cb490749e0db, type: 3}
 --- !u!4 &2116319
 Transform:
   m_ObjectHideFlags: 0
