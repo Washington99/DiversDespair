@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
-    [SerializeField] private float scrollSpeed;
+    public float scrollSpeed;
     private float damageAmount = 20f;
     private Animator myAnimator;
     private Collider2D myCollider;
+
+    AudioManager audioManager;
+
+    private void Awake(){
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +34,7 @@ public class Bomb : MonoBehaviour
 
         if (player != null)
         {
+            audioManager.PlaySFX(audioManager.explosion);
             // Drain stamina
             player.TakeDamage(damageAmount);
 
