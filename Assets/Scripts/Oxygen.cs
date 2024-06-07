@@ -5,7 +5,8 @@ using UnityEngine;
 public class Oxygen : MonoBehaviour
 {
     [SerializeField] private float scrollSpeed;
-    
+    private float healAmount = 20f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +25,7 @@ public class Oxygen : MonoBehaviour
             
         if (player != null) {
 
-            // Point increase code here
+            player.HealStamina(healAmount);
 
             Destroy(gameObject);
               
