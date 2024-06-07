@@ -22,6 +22,9 @@ public class PlayerMovement : MonoBehaviour
     //coin count
     public CoinManager cm;
 
+    //death animation
+    private Animator myAnimator;
+
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
@@ -33,6 +36,11 @@ public class PlayerMovement : MonoBehaviour
         staminaBar.UpdateStaminaBar(stamina, maxStamina);
     }
 
+    void Start()
+    {
+        myAnimator = GetComponent<Animator>();
+    }
+
     private void Update()
     {
         Move();
@@ -42,8 +50,9 @@ public class PlayerMovement : MonoBehaviour
         //new
         if(stamina <= 0 && !isDead){
             isDead = true; 
-            gameObject.SetActive(false);
-            gameManager.gameOver();
+            //death animation
+            myAnimator.SetTrigger("death");
+            StartCoroutine(DestroyAfterDeath());
             // depthTracking.
         }
     }
@@ -79,13 +88,23 @@ public class PlayerMovement : MonoBehaviour
 
     public void HealStamina(float amount)
     {
-        stamina += amount;
-        stamina = Mathf.Clamp(stamina, 0, maxStamina);
-        staminaBar.UpdateStaminaBar(stamina, maxStamina);
+        if (stamina >0)
+            stamina += amount;
+            stamina = Mathf.Clamp(stamina, 0, maxStamina);
+            staminaBar.UpdateStaminaBar(stamina, maxStamina);
     }
 
     public void IncreaseCoinCount(float amount)
     {
         cm.coinCount++;
+    }
+
+    private IEnumerator DestroyAfterDeath()
+    {
+        // Wait until the animation completes
+        yield return new WaitForSeconds(2.0f);
+
+        gameObject.SetActive(false);
+        gameManager.gameOver();
     }
 }
