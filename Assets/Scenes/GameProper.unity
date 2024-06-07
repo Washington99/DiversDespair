@@ -907,6 +907,7 @@ MonoBehaviour:
   trapObject: {fileID: 8438978384309579049, guid: 5ccb9c8aff9593640a9f430bbc843dca, type: 3}
   trapToSpawn: 2
   collectibleSpawnRate: 4
+  spawnWidth: 4
 --- !u!4 &523439944
 Transform:
   m_ObjectHideFlags: 0
