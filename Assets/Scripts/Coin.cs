@@ -22,6 +22,7 @@ public class Coin : MonoBehaviour
 
             // Point increase code here
 
+            player.IncreaseCoinCount(1);
             Destroy(gameObject);
               
         }
