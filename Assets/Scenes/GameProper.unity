@@ -2048,7 +2048,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverUI: {fileID: 1604549910}
-  player: {fileID: 0}
+  player: {fileID: 408140799}
+  currentScore: {fileID: 26165030}
+  finalScore: {fileID: 2092284517}
 --- !u!4 &1762249526
 Transform:
   m_ObjectHideFlags: 0
@@ -2077,7 +2079,6 @@ GameObject:
   - component: {fileID: 1871025081}
   - component: {fileID: 1871025080}
   - component: {fileID: 1871025084}
-  - component: {fileID: 1871025085}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2182,18 +2183,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   counter: {fileID: 26165030}
---- !u!114 &1871025085
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1871025079}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21dafcc76877f6c459c9d1baa619a7dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1904283539
 GameObject:
   m_ObjectHideFlags: 0

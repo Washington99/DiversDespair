@@ -2,11 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManagerScript : MonoBehaviour
 {
     public GameObject gameOverUI;
     public GameObject player;
+
+    //new
+    [SerializeField] TextMeshProUGUI currentScore;
+    [SerializeField] TextMeshProUGUI finalScore;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +34,9 @@ public class GameManagerScript : MonoBehaviour
 
     public void gameOver(){
         gameOverUI.SetActive(true);
+        finalScore.text = currentScore.text;
+
+        currentScore.gameObject.SetActive(false);
     }
 
     public void restart(){
