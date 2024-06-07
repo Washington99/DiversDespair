@@ -13,6 +13,11 @@ public class PlayerMovement : MonoBehaviour
     
     [SerializeField] private float staminaDrain;
     [SerializeField] PlayerStamina staminaBar;
+
+    //new
+    private bool isDead;
+    public GameManagerScript gameManager;
+    // public depthTracker depthTracking;
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
@@ -29,6 +34,14 @@ public class PlayerMovement : MonoBehaviour
         Move();
         ClampVelocity();
         DrainStamina();
+
+        //new
+        if(stamina <= 0 && !isDead){
+            isDead = true; 
+            gameObject.SetActive(false);
+            gameManager.gameOver();
+            // depthTracking.
+        }
     }
 
     private void Move() {
