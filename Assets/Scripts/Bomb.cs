@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
-    [SerializeField] private float scrollSpeed;
+    public float scrollSpeed;
     private float damageAmount = 20f;
     private Animator myAnimator;
     private Collider2D myCollider;

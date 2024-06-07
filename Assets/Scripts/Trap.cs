@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Trap : MonoBehaviour
 {
-    [SerializeField] private float scrollSpeed;
+    public float scrollSpeed;
     private float damageAmount = 50f;
 
     // Start is called before the first frame update

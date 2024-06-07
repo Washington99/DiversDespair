@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Oxygen : MonoBehaviour
 {
-    [SerializeField] private float scrollSpeed;
+    [SerializeField] public float scrollSpeed;
     private float healAmount = 20f;
 
     // Start is called before the first frame update

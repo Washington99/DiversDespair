@@ -400,6 +400,7 @@ GameObject:
   m_Component:
   - component: {fileID: 287313692}
   - component: {fileID: 287313693}
+  - component: {fileID: 287313694}
   m_Layer: 0
   m_Name: Light 2D
   m_TagString: Untagged
@@ -460,8 +461,8 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360.00003
   m_PointLightOuterAngle: 360.00003
-  m_PointLightInnerRadius: 3
-  m_PointLightOuterRadius: 5
+  m_PointLightInnerRadius: 0
+  m_PointLightOuterRadius: 2
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -472,6 +473,19 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &287313694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287313691}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f98d9df40c813534c8bee5ecb321c36a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dt: {fileID: 1871025084}
 --- !u!1 &408140799
 GameObject:
   m_ObjectHideFlags: 0
@@ -899,15 +913,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bombObject: {fileID: 1139476762325039663, guid: 5d0c4704d1ba4ef458ee119ad52a142d, type: 3}
-  bombsToSpawn: 3
+  initialBombsToSpawn: 3
   coinObject: {fileID: 3129830598565595640, guid: c6fb9608b3a86ff4baac001c7986489a, type: 3}
-  coinsToSpawn: 3
+  initialCoinsToSpawn: 3
   oxygenObject: {fileID: 8950224939291097783, guid: b4d64306c9ccea4408153fda60384593, type: 3}
-  oxygenToSpawn: 5
+  initialOxygenToSpawn: 5
   trapObject: {fileID: 8438978384309579049, guid: 5ccb9c8aff9593640a9f430bbc843dca, type: 3}
-  trapToSpawn: 2
+  initialTrapToSpawn: 2
   collectibleSpawnRate: 4
   spawnWidth: 4
+  dt: {fileID: 1871025084}
 --- !u!4 &523439944
 Transform:
   m_ObjectHideFlags: 0
@@ -1543,7 +1558,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &1369269957
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2184,6 +2199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   counter: {fileID: 26165030}
+  points: 0
 --- !u!1 &1904283539
 GameObject:
   m_ObjectHideFlags: 0
