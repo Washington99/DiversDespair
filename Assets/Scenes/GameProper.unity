@@ -446,7 +446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25eafa4d1afa6e1499a07368c63a0a90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 5
   maxStamina: 100
   staminaDrain: 1
   staminaBar: {fileID: 2091077276}
@@ -636,6 +636,7 @@ MonoBehaviour:
   oxygenToSpawn: 5
   trapObject: {fileID: 8438978384309579049, guid: 5ccb9c8aff9593640a9f430bbc843dca, type: 3}
   trapToSpawn: 2
+  spawnWidth: 4
   collectibleSpawnRate: 4
 --- !u!4 &523439944
 Transform:

@@ -6,6 +6,9 @@ public class Bomb : MonoBehaviour
 {
 
     [SerializeField] private float scrollSpeed;
+    [SerializeField] private float damageAmount;
+    private Animator myAnimator;
+    private Collider2D myCollider;
 
     // Start is called before the first frame update
     void Start()
@@ -27,8 +30,16 @@ public class Bomb : MonoBehaviour
 
             // Drain stamina bar code here
 
-            Destroy(gameObject);
-              
+            // Disable the collider to prevent further collisions while it explodes 
+            myCollider.enabled = false;
+
+            // Explode animation
+            myAnimator.SetTrigger("collide");
+
+            // Start the coroutine to destroy the bomb after the animation
+            // StartCoroutine(DestroyAfterAnimation());
+
+            myCollider.enabled = true;
         }
     }
 
