@@ -16,7 +16,7 @@ public class PlayerClamp : MonoBehaviour
     private void LateUpdate() {
         
         Vector3 viewPos = transform.position;
-        viewPos.x = Mathf.Clamp(viewPos.x, -screenBounds.x, screenBounds.x);
+        viewPos.x = Mathf.Clamp(viewPos.x, -screenBounds.x * (float)0.8, screenBounds.x * (float)0.8);
         viewPos.y = Mathf.Clamp(viewPos.y, -screenBounds.y, screenBounds.y);
         transform.position = viewPos;
 
